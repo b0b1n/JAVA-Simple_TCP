@@ -16,8 +16,8 @@ public class Client {
 		PrintWriter out_socket = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
 		
 		String message = in_socket.readLine();
-		System.out.println(" 'Server' says ::: "+ message);
-		out_socket.println("Thanks!");
+		System.out.println(" 'Mr.Server' says ::: "+ message);
+		out_socket.println("Thanks Mr.Server!");
 		
 		socket.close();
 		System.out.println(socket.isClosed() ? "socket is closed." : " socket not closed yet."); 

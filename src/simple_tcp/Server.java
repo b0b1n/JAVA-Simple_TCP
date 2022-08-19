@@ -16,14 +16,20 @@ public class Server {
 		System.out.println("Port 2022 is open.");
 
 		Socket socket = server_socket.accept();
-		System.out.println("Client " + socket.getRemoteSocketAddress() + " has connected.");
+		System.out.println("The Client " + socket.getRemoteSocketAddress() + " has connected.");
 
 		// I/O buffers:
-		BufferedReader in_socket = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+		/*
+		 * Data coming from the client to the socket
+		 */
+		BufferedReader in_socket = new BufferedReader(new InputStreamReader(socket.getInputStream())); 
+		/*
+		 * Outgoing data sent from the server to the client
+		 */
 		PrintWriter out_socket = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
 
 		out_socket.println("Welcome Mr.Client!"); // sending a message to the Client
-		String message = in_socket.readLine(); //Storing what the Client wrote
+		String message = in_socket.readLine(); //Storing what the Client wrote ("Thanks Mr.Server!")
 		System.out.println(" 'Mr.Client' says ::: " + message); // display Client's message in the console
 
 		socket.close();
